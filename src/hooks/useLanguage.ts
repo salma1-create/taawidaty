@@ -5,9 +5,22 @@ type Language = 'ar' | 'fr';
 export function useLanguage() {
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('language') as Language) || 'ar';
+      // Check localStorage first
+      const stored = localStorage.getItem('language') as Language;
+      if (stored) {
+        return stored;
+      }
+      
+      // Auto-detect browser language if no stored preference
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.startsWith('fr')) {
+        return 'fr';
+      }
+      
+      // Default to French for better international accessibility
+      return 'fr';
     }
-    return 'ar';
+    return 'fr';
   });
 
   useEffect(() => {
