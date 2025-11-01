@@ -124,7 +124,21 @@ export default function Index() {
                 }}
                 className="group p-8 rounded-2xl border-2 border-slate-300 hover:border-primary-700 hover:bg-primary-50 transition-all shadow-soft hover:shadow-lg"
               >
-                <div className="text-6xl mb-4">🏥</div>
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src="/logos/cnops-logo.png" 
+                    alt="CNOPS Logo" 
+                    className="h-24 w-auto object-contain"
+                    onError={(e) => {
+                      // Fallback to emoji if image not found
+                      e.currentTarget.style.display = 'none';
+                      const fallback = document.createElement('div');
+                      fallback.className = 'text-6xl';
+                      fallback.textContent = '🏥';
+                      e.currentTarget.parentElement?.appendChild(fallback);
+                    }}
+                  />
+                </div>
                 <h3 className="text-2xl font-black text-slate-900 mb-3">
                   {t.calculator.cnops}
                 </h3>

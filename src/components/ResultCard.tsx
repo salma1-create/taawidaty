@@ -42,12 +42,24 @@ export default function ResultCard({
 
         {/* Medication Info */}
         <div className="bg-slate-50 rounded-xl p-4 mb-6">
-          <p className={`text-sm text-slate-600 mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
-            {t.medication}
-          </p>
-          <p className={`text-lg font-bold text-slate-900 ${language === 'ar' ? 'font-arabic' : ''}`}>
-            {medicationName}
-          </p>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex-1">
+              <p className={`text-sm text-slate-600 mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                {t.medication}
+              </p>
+              <p className={`text-lg font-bold text-slate-900 ${language === 'ar' ? 'font-arabic' : ''}`}>
+                {medicationName}
+              </p>
+            </div>
+            {insuranceType === 'cnops' && (
+              <img 
+                src="/logos/cnops-logo.png" 
+                alt="CNOPS" 
+                className="h-12 w-auto object-contain ml-4"
+                onError={(e) => e.currentTarget.style.display = 'none'}
+              />
+            )}
+          </div>
           <p className="text-sm text-primary-700 mt-1 font-semibold">
             {insuranceType.toUpperCase()}
           </p>
