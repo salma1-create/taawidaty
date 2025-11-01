@@ -4,6 +4,7 @@ import { translations } from '@/lib/translations';
 import LanguageToggle from '@/components/LanguageToggle';
 import SearchInput from '@/components/SearchInput';
 import ResultCard from '@/components/ResultCard';
+import { PlaceholderAd } from '@/components/AdBanner';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Sparkles, Pill } from 'lucide-react';
 
@@ -186,6 +187,15 @@ export default function Index() {
               </button>
             </div>
           </div>
+
+          {/* Ad Banner - Below Insurance Selection */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <PlaceholderAd 
+              height="120px" 
+              className="mb-4"
+              label={language === 'ar' ? 'إعلان' : 'Publicité'}
+            />
+          </div>
         </section>
       )}
 
@@ -216,6 +226,14 @@ export default function Index() {
               insuranceType={insurance!}
             />
 
+            {/* Ad Banner - Below Search Input */}
+            <div className="mt-8">
+              <PlaceholderAd 
+                height="100px"
+                label={language === 'ar' ? 'إعلان' : 'Publicité'}
+              />
+            </div>
+
             {medication && (
               <div className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-primary-100 border-2 border-primary-700 rounded-xl animate-scale-in">
                 <p className={`text-sm text-primary-700 mb-2 font-semibold ${isRTL ? 'font-arabic' : ''}`}>
@@ -241,7 +259,23 @@ export default function Index() {
       {/* Step 3: Results */}
       {step === 3 && result && (
         <section className="px-4 py-16 max-w-5xl mx-auto">
+          {/* Ad Banner - Top of Results */}
+          <div className="mb-8">
+            <PlaceholderAd 
+              height="120px"
+              label={language === 'ar' ? 'إعلان' : 'Publicité'}
+            />
+          </div>
+
           <ResultCard {...result} language={language} />
+
+          {/* Ad Banner - Below Results */}
+          <div className="mt-8">
+            <PlaceholderAd 
+              height="250px"
+              label={language === 'ar' ? 'إعلان' : 'Publicité'}
+            />
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Button
@@ -265,6 +299,14 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="border-t bg-white mt-20">
+        {/* Ad Banner - Before Footer */}
+        <div className="container mx-auto px-4 pt-8">
+          <PlaceholderAd 
+            height="120px"
+            label={language === 'ar' ? 'إعلان' : 'Publicité'}
+          />
+        </div>
+        
         <div className="container mx-auto px-4 py-8 text-center text-slate-600">
           <p className={`text-sm ${isRTL ? 'font-arabic' : ''}`}>
             © 2024 DawaCalc • {t.disclaimer.text}
