@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { loadMedications } from '@/data/medicationsLoader';
 
 interface SearchResult {
   id: number;
@@ -10,6 +11,8 @@ interface SearchResult {
   ppv: number;
   base_remb: number;
   taux_remb: number;
+  forme?: string;
+  presentation?: string;
 }
 
 interface SearchInputProps {
@@ -18,45 +21,8 @@ interface SearchInputProps {
   language: 'ar' | 'fr';
 }
 
-// Mock data generator
-const getMockMedications = (lang: 'ar' | 'fr'): SearchResult[] => [
-  {
-    id: 1,
-    name: lang === 'ar' ? 'باراسيتامول 500 ملغ' : 'Paracétamol 500mg',
-    dci: 'Paracétamol',
-    dosage: '500mg',
-    ppv: 15.50,
-    base_remb: 12.00,
-    taux_remb: 70
-  },
-  {
-    id: 2,
-    name: lang === 'ar' ? 'إيبوبروفين 400 ملغ' : 'Ibuprofène 400mg',
-    dci: 'Ibuprofène',
-    dosage: '400mg',
-    ppv: 22.00,
-    base_remb: 18.00,
-    taux_remb: 70
-  },
-  {
-    id: 3,
-    name: lang === 'ar' ? 'أموكسيسيلين 1 غ' : 'Amoxicilline 1g',
-    dci: 'Amoxicilline',
-    dosage: '1g',
-    ppv: 45.00,
-    base_remb: 38.00,
-    taux_remb: 80
-  },
-  {
-    id: 4,
-    name: lang === 'ar' ? 'أسبرين 500 ملغ' : 'Aspirine 500mg',
-    dci: 'Acide acétylsalicylique',
-    dosage: '500mg',
-    ppv: 18.00,
-    base_remb: 14.00,
-    taux_remb: 70
-  }
-];
+// Cache for loaded medications
+let medicationsCache: SearchResult[] | null = null;
 
 export default function SearchInput({ placeholder, onSelect, language }: SearchInputProps) {
   const [query, setQuery] = useState('');
@@ -85,19 +51,44 @@ export default function SearchInput({ placeholder, onSelect, language }: SearchI
     }
 
     setIsLoading(true);
-    // Simulate API call
-    const timer = setTimeout(() => {
-      const meds = getMockMedications(language);
-      const filtered = meds.filter(med =>
-        med.name.toLowerCase().includes(query.toLowerCase()) ||
-        med.dci?.toLowerCase().includes(query.toLowerCase())
-      );
-      setResults(filtered);
-      setIsOpen(true);
-      setIsLoading(false);
+    
+    // Search through real CNOPS database with async loading
+    const searchTimer = setTimeout(async () => {
+      try {
+        // Load medications if not cached
+        if (!medicationsCache) {
+          const data = await loadMedications();
+          medicationsCache = data.map((med: any) => ({
+            id: med.id,
+            name: med.name,
+            dci: med.dci,
+            dosage: med.dosage,
+            ppv: med.ppv,
+            base_remb: med.prix_br,
+            taux_remb: med.taux_remb,
+            forme: med.forme,
+            presentation: med.presentation
+          }));
+        }
+        
+        const searchTerm = query.toLowerCase();
+        const filtered = medicationsCache.filter(med =>
+          med.name.toLowerCase().includes(searchTerm) ||
+          med.dci?.toLowerCase().includes(searchTerm)
+        );
+        
+        // Limit results to top 50 for performance
+        setResults(filtered.slice(0, 50));
+        setIsOpen(true);
+      } catch (error) {
+        console.error('Error searching medications:', error);
+        setResults([]);
+      } finally {
+        setIsLoading(false);
+      }
     }, 300);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(searchTimer);
   }, [query]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

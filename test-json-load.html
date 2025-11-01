@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test JSON Load</title>
+</head>
+<body>
+    <h1>Testing JSON Load</h1>
+    <div id="status">Loading...</div>
+    <script type="module">
+        try {
+            const data = await import('./src/data/medications-cnops.json');
+            document.getElementById('status').innerHTML = `✓ Loaded ${data.default.length} medications`;
+            console.log('First medication:', data.default[0]);
+        } catch (error) {
+            document.getElementById('status').innerHTML = `✗ Error: ${error.message}`;
+            console.error('Load error:', error);
+        }
+    </script>
+</body>
+</html>
