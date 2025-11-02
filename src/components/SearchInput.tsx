@@ -180,7 +180,7 @@ export default function SearchInput({ placeholder, onSelect, language, insurance
           dir={dir}
           className={cn(
             `absolute z-50 w-full mt-2
-            bg-white rounded-xl shadow-strong border-2 border-slate-200
+            bg-white dark:bg-card rounded-xl shadow-strong border-2 border-slate-200 dark:border-border
             max-h-96 overflow-y-auto`,
             dir === 'rtl' && 'text-right'
           )}
@@ -191,17 +191,17 @@ export default function SearchInput({ placeholder, onSelect, language, insurance
               onClick={() => handleSelect(result)}
               className={cn(
                 `w-full px-5 py-4 text-left transition-colors
-                hover:bg-primary-50 focus:bg-primary-50 focus:outline-none
-                border-b border-slate-100 last:border-b-0`,
-                selectedIndex === index && 'bg-primary-50',
+                hover:bg-primary-50 dark:hover:bg-muted focus:bg-primary-50 dark:focus:bg-muted focus:outline-none
+                border-b border-slate-100 dark:border-border last:border-b-0`,
+                selectedIndex === index && 'bg-primary-50 dark:bg-muted',
                 dir === 'rtl' && 'text-right'
               )}
             >
-              <div className={`font-bold text-slate-900 mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <div className={`font-bold text-slate-900 dark:text-card-foreground mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {result.name}
               </div>
               {result.dci && (
-                <div className="text-sm text-slate-500">
+                <div className="text-sm text-slate-500 dark:text-muted-foreground">
                   {result.dci} {result.dosage && `• ${result.dosage}`}
                 </div>
               )}
