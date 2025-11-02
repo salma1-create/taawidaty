@@ -421,25 +421,25 @@ export default function Index() {
       )}
 
       {/* Footer */}
-      <footer className="border-t bg-white mt-20">
+      <footer className="border-t bg-white dark:bg-card mt-20 transition-colors duration-300">
         {/* Ad Banner - Before Footer */}
         <div className="container mx-auto px-4 pt-8">
-          <PlaceholderAd 
+          <PlaceholderAd
             height="120px"
             label={language === 'ar' ? 'إعلان' : 'Publicité'}
           />
         </div>
-        
+
         {/* FAQ Links */}
-        <div className="container mx-auto px-4 py-6 border-t">
+        <div className="container mx-auto px-4 py-6 border-t dark:border-border">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <Button asChild variant="outline" className={isRTL ? 'font-arabic' : ''}>
+            <Button asChild variant="outline" className={`hover:bg-slate-100 dark:hover:bg-muted transition-colors duration-200 ${isRTL ? 'font-arabic' : ''}`}>
               <Link to="/faq-cnops" className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4" />
                 <span>{language === 'ar' ? 'أسئلة متكررة CNOPS' : 'FAQ CNOPS'}</span>
               </Link>
             </Button>
-            <Button asChild variant="outline" className={isRTL ? 'font-arabic' : ''}>
+            <Button asChild variant="outline" className={`hover:bg-slate-100 dark:hover:bg-muted transition-colors duration-200 ${isRTL ? 'font-arabic' : ''}`}>
               <Link to="/faq-cnss" className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4" />
                 <span>{language === 'ar' ? 'أسئلة متكررة CNSS' : 'FAQ CNSS'}</span>
@@ -447,8 +447,8 @@ export default function Index() {
             </Button>
           </div>
         </div>
-        
-        <div className="container mx-auto px-4 py-8 text-center text-slate-600">
+
+        <div className="container mx-auto px-4 py-8 text-center text-slate-600 dark:text-muted-foreground transition-colors duration-300">
           <p className={`text-sm ${isRTL ? 'font-arabic' : ''}`}>
             © 2025 TAAWIDATY • {language === 'ar' ? 'صمم وطور بواسطة' : 'Designed & Developed by'} <strong>BENTALBA ZAKARIA</strong>
           </p>
