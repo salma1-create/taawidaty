@@ -114,10 +114,10 @@ export default function ResultCard({
 
       {/* Savings Indicator */}
       {reimbursementAmount > 0 && (
-        <div className="bg-gradient-to-r from-success-50 to-success-100 border-2 border-success-600 rounded-xl p-5 text-center shadow-soft animate-scale-in">
+        <div className="bg-gradient-to-r from-success-50 to-success-100 dark:from-success-950 dark:to-success-900 border-2 border-success-600 dark:border-success-500 rounded-xl p-5 text-center shadow-soft animate-scale-in">
           <div className="flex items-center justify-center gap-2">
-            <Sparkles className="w-6 h-6 text-success-700" />
-            <p className={`text-success-700 font-bold text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
+            <Sparkles className="w-6 h-6 text-success-700 dark:text-success-400" />
+            <p className={`text-success-700 dark:text-success-300 font-bold text-lg ${language === 'ar' ? 'font-arabic' : ''}`}>
               {t.savings.replace('{amount}', formatCurrency(reimbursementAmount))}
             </p>
           </div>
@@ -125,11 +125,11 @@ export default function ResultCard({
       )}
 
       {/* Disclaimer */}
-      <div className="bg-warning-50 border-l-4 border-warning-500 rounded-lg p-4">
-        <p className={`text-sm font-semibold text-warning-900 mb-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
+      <div className="bg-warning-50 dark:bg-warning-950 border-l-4 border-warning-500 dark:border-warning-600 rounded-lg p-4">
+        <p className={`text-sm font-semibold text-warning-900 dark:text-warning-200 mb-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
           ⚠️ {translations[language].disclaimer.title}
         </p>
-        <p className={`text-sm text-warning-800 ${language === 'ar' ? 'font-arabic' : ''}`}>
+        <p className={`text-sm text-warning-800 dark:text-warning-300 ${language === 'ar' ? 'font-arabic' : ''}`}>
           {translations[language].disclaimer.text}
         </p>
       </div>
