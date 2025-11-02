@@ -71,49 +71,59 @@ export default function ResultCard({
           </div>
         </div>
 
-        {/* Main Amount - What Patient Pays */}
-        <div className="bg-gradient-to-br from-primary-700 to-primary-900 text-white rounded-2xl p-8 mb-6 text-center shadow-lg">
-          <p className={`text-sm opacity-90 mb-3 ${language === 'ar' ? 'font-arabic' : ''}`}>
-            {t.youPay}
-          </p>
-          <p className="text-5xl md:text-6xl font-black tracking-tight">
-            {formatCurrency(patientPays)}
-          </p>
+              {/* Modern Main Amount Display */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-blue-600 rounded-3xl blur-xl opacity-50"></div>
+          <div className="relative bg-gradient-to-br from-primary-600 to-blue-600 text-white rounded-3xl p-10 text-center shadow-glow">
+            <p className={`text-lg font-medium mb-4 opacity-90 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              {t.youPay}
+            </p>
+            <p className="text-5xl md:text-7xl font-black tracking-tight mb-4">
+              {formatCurrency(patientPays)}
+            </p>
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+          </div>
         </div>
 
-        {/* Breakdown */}
-        <div className="space-y-4">
-          <div className="flex justify-between items-center pb-4 border-b-2 border-slate-200 dark:border-border">
-            <span className={`text-slate-600 dark:text-muted-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
+        {/* Modern Breakdown */}
+        <div className="glass p-6 rounded-2xl space-y-6">
+          <div className="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-border">
+            <span className={`text-slate-600 dark:text-muted-foreground font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
               {t.originalPrice}
             </span>
-            <span className="text-xl font-bold text-slate-900 dark:text-card-foreground">
+            <span className="text-xl font-bold text-slate-900 dark:text-foreground">
               {formatCurrency(originalPrice)}
             </span>
           </div>
 
-          <div className="flex justify-between items-center pb-4 border-b-2 border-slate-200 dark:border-border">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-success-600 dark:text-success-500" />
+          <div className="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-border">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-success-100 dark:bg-success-950 flex items-center justify-center">
+                <CheckCircle2 className="w-5 h-5 text-success-600 dark:text-success-400" />
+              </div>
               <div>
-                <span className={`text-slate-600 dark:text-muted-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
+                <span className={`text-slate-600 dark:text-muted-foreground font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
                   {t.reimbursement}
                 </span>
-                <span className={`text-sm text-success-600 dark:text-success-500 font-semibold ${language === 'ar' ? 'mr-2 font-arabic' : 'ml-2'}`}>
-                  ({percentageCovered}% {t.covered})
-                </span>
+                <div className={`text-sm text-success-600 dark:text-success-400 font-semibold ${language === 'ar' ? 'font-arabic' : ''}`}>
+                  {percentageCovered}% {t.covered}
+                </div>
               </div>
             </div>
-            <span className="text-xl font-bold text-success-600 dark:text-success-500">
+            <span className="text-xl font-bold text-success-600 dark:text-success-400">
               -{formatCurrency(reimbursementAmount)}
             </span>
           </div>
 
-          <div className="flex justify-between items-center pt-2">
-            <span className={`text-lg font-black text-slate-900 dark:text-card-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
+          <div className="flex justify-between items-center pt-4">
+            <span className={`text-lg font-black text-slate-900 dark:text-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
               {t.youPay}
             </span>
-            <span className="text-3xl font-black text-primary-700 dark:text-primary">
+            <span className="text-3xl font-black text-primary-600 dark:text-primary">
               {formatCurrency(patientPays)}
             </span>
           </div>
