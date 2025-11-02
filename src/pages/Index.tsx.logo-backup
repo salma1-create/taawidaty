@@ -6,7 +6,7 @@ import SearchInput from '@/components/SearchInput';
 import ResultCard from '@/components/ResultCard';
 import { PlaceholderAd } from '@/components/AdBanner';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sparkles, Pill } from 'lucide-react';
 
 type InsuranceType = 'cnops' | 'cnss' | null;
 
@@ -67,11 +67,9 @@ export default function Index() {
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-40 shadow-soft">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img
-              src="/logos/TAAWIDATY.png"
-              alt="Taawidaty logo"
-              className="h-12 w-auto"
-            />
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
+              <Pill className="w-6 h-6 text-white" />
+            </div>
             <h1 className={`text-2xl font-black text-primary-800 ${isRTL ? 'font-arabic' : ''}`}>
               {t.app.title}
             </h1>
@@ -311,7 +309,7 @@ export default function Index() {
         
         <div className="container mx-auto px-4 py-8 text-center text-slate-600">
           <p className={`text-sm ${isRTL ? 'font-arabic' : ''}`}>
-            © 2025 TAAWIDATY • {t.disclaimer.text}
+            © 2024 DawaCalc • {t.disclaimer.text}
           </p>
         </div>
       </footer>

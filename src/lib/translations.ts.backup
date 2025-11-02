@@ -1,12 +1,12 @@
 export const translations = {
   ar: {
     app: {
-      title: 'تعويضاتي',
+      title: 'داوا كالك',
       subtitle: 'احسب تعويض الأدوية في ثوانٍ'
     },
     hero: {
       title: 'احسب تعويض أدويتك بسهولة',
-      subtitle: 'اكتشف المبلغ الذي ستسترده من CNOPS أو CNSS (AMO) فوراً',
+      subtitle: 'اكتشف المبلغ الذي ستسترده من CNOPS أو CNSS فوراً',
       cta: 'احسب الآن',
       trustOfficial: 'بيانات رسمية محدثة',
       trustInstant: 'نتائج فورية',
@@ -16,7 +16,7 @@ export const translations = {
       title: 'كيف يعمل؟',
       step1: {
         title: 'اختر نوع التأمين',
-        description: 'CNOPS للموظفين العموميين أو CNSS (AMO) للقطاع الخاص'
+        description: 'CNOPS للموظفين العموميين أو CNSS للقطاع الخاص'
       },
       step2: {
         title: 'ابحث عن الدواء',
@@ -31,7 +31,7 @@ export const translations = {
       selectInsurance: 'اختر نوع التأمين الصحي',
       cnops: 'CNOPS',
       cnopsDesc: 'الصندوق الوطني للضمان الاجتماعي - الموظفون العموميون',
-      cnss: 'CNSS (AMO)',
+      cnss: 'CNSS',
       cnssDesc: 'الصندوق الوطني للضمان الاجتماعي - القطاع الخاص',
       searchMed: 'ابحث عن دواء',
       searchPlaceholder: 'مثال: باراسيتامول، دولوبران...',
@@ -55,34 +55,17 @@ export const translations = {
       title: 'تنبيه مهم',
       text: 'هذه الأداة للإرشاد فقط. المبالغ الفعلية قد تختلف. يرجى استشارة صيدليتك أو صندوق التأمين للحصول على معلومات دقيقة.'
     },
-    faq: {
-      cnops: {
-        title: 'الأسئلة الشائعة CNOPS',
-        subtitle: 'اعثر على جميع الإجابات حول تعويض CNOPS',
-        questions: []
-      },
-      cnss: {
-        title: 'الأسئلة الشائعة CNSS',
-        subtitle: 'اعثر على جميع الإجابات حول تعويض CNSS',
-        questions: []
-      },
-      cta: {
-        title: 'جاهز لحساب تعويضك؟',
-        subtitle: 'استخدم الحاسبة لمعرفة المبلغ الدقيق لتعويضك',
-        button: 'انتقل إلى الحاسبة'
-      }
-    },
     noResults: 'لم يتم العثور على نتائج',
     loading: 'جاري التحميل...'
   },
   fr: {
     app: {
-      title: 'TAAWIDATY',
+      title: 'DawaCalc',
       subtitle: 'Calculez le remboursement de vos médicaments en secondes'
     },
     hero: {
       title: 'Calculez facilement le remboursement de vos médicaments',
-      subtitle: 'Découvrez instantanément combien vous serez remboursé par la CNOPS ou la CNSS (AMO)',
+      subtitle: 'Découvrez instantanément combien vous serez remboursé par la CNOPS ou la CNSS',
       cta: 'Calculer maintenant',
       trustOfficial: 'Données officielles à jour',
       trustInstant: 'Résultats instantanés',
@@ -92,7 +75,7 @@ export const translations = {
       title: 'Comment ça marche ?',
       step1: {
         title: 'Choisissez votre assurance',
-        description: 'CNOPS pour les fonctionnaires ou CNSS (AMO) pour le secteur privé'
+        description: 'CNOPS pour les fonctionnaires ou CNSS pour le secteur privé'
       },
       step2: {
         title: 'Recherchez le médicament',
@@ -107,7 +90,7 @@ export const translations = {
       selectInsurance: 'Choisissez votre type d\'assurance',
       cnops: 'CNOPS',
       cnopsDesc: 'Caisse Nationale des Organismes de Prévoyance Sociale - Fonctionnaires',
-      cnss: 'CNSS (AMO)',
+      cnss: 'CNSS',
       cnssDesc: 'Caisse Nationale de Sécurité Sociale - Secteur privé',
       searchMed: 'Rechercher un médicament',
       searchPlaceholder: 'Ex: Paracétamol, Doliprane...',
@@ -130,23 +113,6 @@ export const translations = {
     disclaimer: {
       title: 'Avertissement important',
       text: 'Cet outil est fourni à titre indicatif uniquement. Les montants réels peuvent varier. Veuillez consulter votre pharmacie ou votre caisse d\'assurance pour des informations précises.'
-    },
-    faq: {
-      cnops: {
-        title: 'FAQ CNOPS - Questions Fréquentes',
-        subtitle: 'Trouvez toutes les réponses sur le remboursement CNOPS',
-        questions: []
-      },
-      cnss: {
-        title: 'FAQ CNSS - Questions Fréquentes',
-        subtitle: 'Trouvez toutes les réponses sur le remboursement CNSS',
-        questions: []
-      },
-      cta: {
-        title: 'Prêt à calculer votre remboursement ?',
-        subtitle: 'Utilisez notre calculateur pour connaître le montant exact de votre remboursement',
-        button: 'Accéder au calculateur'
-      }
     },
     noResults: 'Aucun résultat trouvé',
     loading: 'Chargement...'
