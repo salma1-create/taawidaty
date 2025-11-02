@@ -313,18 +313,18 @@ export default function Index() {
         {/* FAQ Links */}
         <div className="container mx-auto px-4 py-6 border-t">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <Link to="/faq-cnops">
-              <Button variant="outline" className={`gap-2 ${isRTL ? 'font-arabic' : ''}`}>
+            <Button asChild variant="outline" className={isRTL ? 'font-arabic' : ''}>
+              <Link to="/faq-cnops" className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4" />
-                {language === 'ar' ? 'أسئلة متكررة CNOPS' : 'FAQ CNOPS'}
-              </Button>
-            </Link>
-            <Link to="/faq-cnss">
-              <Button variant="outline" className={`gap-2 ${isRTL ? 'font-arabic' : ''}`}>
+                <span>{language === 'ar' ? 'أسئلة متكررة CNOPS' : 'FAQ CNOPS'}</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className={isRTL ? 'font-arabic' : ''}>
+              <Link to="/faq-cnss" className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4" />
-                {language === 'ar' ? 'أسئلة متكررة CNSS' : 'FAQ CNSS'}
-              </Button>
-            </Link>
+                <span>{language === 'ar' ? 'أسئلة متكررة CNSS' : 'FAQ CNSS'}</span>
+              </Link>
+            </Button>
           </div>
         </div>
         

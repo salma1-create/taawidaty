@@ -37,7 +37,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = () => {
     setLanguage(prev => {
       const newLang = prev === 'ar' ? 'fr' : 'ar';
-      console.log('Language toggled from', prev, 'to', newLang);
+      if (import.meta.env.DEV) {
+        console.log('Language toggled from', prev, 'to', newLang);
+      }
       return newLang;
     });
   };
