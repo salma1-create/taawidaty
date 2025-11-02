@@ -134,16 +134,18 @@ export default function Index() {
               {t.hero.subtitle}
             </p>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm text-slate-600 dark:text-muted-foreground">
+          {/* Modern Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
             {[
               { icon: CheckCircle2, text: t.hero.trustOfficial },
               { icon: CheckCircle2, text: t.hero.trustInstant },
               { icon: CheckCircle2, text: t.hero.trustFree }
             ].map((item, index) => (
-              <div key={index} className="flex items-center gap-2 group hover:scale-105 transition-transform duration-200">
-                <item.icon className="w-5 h-5 text-success-600 dark:text-success-500 group-hover:text-success-700 dark:group-hover:text-success-400 transition-colors" />
-                <span className={`${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>{item.text}</span>
+              <div key={index} className="group flex items-center gap-3 p-3 rounded-2xl glass-card hover-lift">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-success-100 dark:bg-success-950 group-hover:bg-success-200 dark:group-hover:bg-success-900 transition-colors">
+                  <item.icon className="w-5 h-5 text-success-600 dark:text-success-400" />
+                </div>
+                <span className={`text-sm font-medium text-slate-700 dark:text-slate-300 ${isRTL ? 'font-arabic' : ''}`}>{item.text}</span>
               </div>
             ))}
           </div>
