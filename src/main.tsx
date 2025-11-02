@@ -1,3 +1,15 @@
+/**
+ * TAAWIDATY - Moroccan Medication Reimbursement Calculator
+ * 
+ * @author BENTALBA ZAKARIA
+ * @copyright 2025 BENTALBA ZAKARIA
+ * @description Application entry point
+ * 
+ * NOTE: The name "TAAWIDATY" (تعويضاتي) is proprietary and protected.
+ * The code is open source (MIT License), but the brand name cannot be used
+ * in derivative works without explicit permission.
+ */
+
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
