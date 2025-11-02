@@ -77,22 +77,31 @@ export default function Index() {
 
   return (
     <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-background dark:to-card transition-colors duration-300">
-      {/* Header */}
-      <header className="border-b bg-white/80 dark:bg-card/80 backdrop-blur-sm sticky top-0 z-40 shadow-soft dark:border-border transition-colors duration-300">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img
-              src="/logos/TAAWIDATY.png"
-              alt="Taawidaty logo"
-              className="h-12 w-auto"
-            />
-            <h1 className={`text-2xl font-black text-primary-800 dark:text-primary ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
-              {t.app.title}
-            </h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <LanguageToggle />
+      {/* Modern Header */}
+      <header className="sticky top-0 z-50 transition-colors duration-300">
+        <div className="glass border-b border-white/20 dark:border-gray-800/20">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-blue-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  <img
+                    src="/logos/TAAWIDATY.png"
+                    alt="Taawidaty logo"
+                    className="relative h-12 w-auto group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h1 className={`text-2xl md:text-3xl font-black text-gradient-modern ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
+                  {t.app.title}
+                </h1>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 p-2 rounded-xl glass-card">
+                  <ThemeToggle />
+                  <LanguageToggle />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
