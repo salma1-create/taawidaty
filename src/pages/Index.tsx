@@ -90,7 +90,10 @@ export default function Index() {
               {t.app.title}
             </h1>
           </div>
-          <LanguageToggle />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <LanguageToggle />
+          </div>
         </div>
       </header>
 
