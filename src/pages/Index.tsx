@@ -370,9 +370,21 @@ export default function Index() {
       {/* Step 3: Results */}
       {step === 3 && result && (
         <section className="px-4 py-16 max-w-5xl mx-auto">
+          {/* Progress Indicator */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-2 w-full bg-primary-700 rounded-full transition-all duration-500"></div>
+              <div className="h-2 w-full bg-primary-700 rounded-full transition-all duration-500"></div>
+              <div className="h-2 w-full bg-primary-700 rounded-full transition-all duration-500"></div>
+            </div>
+            <p className={`text-center text-sm text-slate-600 dark:text-muted-foreground mt-2 ${isRTL ? 'font-arabic' : ''}`}>
+              {language === 'ar' ? 'الخطوة 3 من 3' : 'Étape 3 sur 3'}
+            </p>
+          </div>
+
           {/* Ad Banner - Top of Results */}
           <div className="mb-8">
-            <PlaceholderAd 
+            <PlaceholderAd
               height="120px"
               label={language === 'ar' ? 'إعلان' : 'Publicité'}
             />
@@ -382,7 +394,7 @@ export default function Index() {
 
           {/* Ad Banner - Below Results */}
           <div className="mt-8">
-            <PlaceholderAd 
+            <PlaceholderAd
               height="250px"
               label={language === 'ar' ? 'إعلان' : 'Publicité'}
             />
@@ -392,7 +404,7 @@ export default function Index() {
             <Button
               onClick={reset}
               size="lg"
-              className={`text-lg ${isRTL ? 'font-arabic' : ''}`}
+              className={`text-lg hover:scale-105 transition-all duration-200 hover:shadow-lg ${isRTL ? 'font-arabic' : ''}`}
             >
               {t.calculator.newCalc}
             </Button>
@@ -400,7 +412,7 @@ export default function Index() {
               onClick={() => setStep(2)}
               variant="outline"
               size="lg"
-              className={`text-lg ${isRTL ? 'font-arabic' : ''}`}
+              className={`text-lg hover:scale-105 hover:bg-slate-100 dark:hover:bg-muted transition-all duration-200 ${isRTL ? 'font-arabic' : ''}`}
             >
               {t.calculator.changeMed}
             </Button>
