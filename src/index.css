@@ -240,6 +240,36 @@
   }
 }
 
+/* Mobile touch optimizations */
+@media (max-width: 768px) {
+  /* Ensure minimum touch target size of 44px */
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better touch spacing */
+  .touch-target-lg {
+    padding: 12px 24px;
+  }
+
+  /* Improved mobile focus indicators */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Better mobile tap feedback */
+  .mobile-tap-feedback:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
 /* Reduced motion support for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
