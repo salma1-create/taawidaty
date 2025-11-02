@@ -230,15 +230,15 @@ export default function Index() {
                     }}
                   />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 mb-3">
+                <h3 className="text-2xl font-black text-slate-900 dark:text-foreground mb-3 transition-colors duration-300">
                   {t.calculator.cnss}
                 </h3>
-                <p className={`text-slate-600 ${isRTL ? 'font-arabic' : ''}`}>
+                <p className={`text-slate-600 dark:text-muted-foreground ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                   {t.calculator.cnssDesc}
                 </p>
-                <div className={`mt-4 flex items-center justify-center gap-2 text-primary-700 font-semibold ${isRTL ? 'font-arabic' : ''}`}>
+                <div className={`mt-4 flex items-center justify-center gap-2 text-primary-700 dark:text-primary font-semibold ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                   {t.hero.cta}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
               </button>
             </div>
