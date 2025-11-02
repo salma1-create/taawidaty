@@ -1,4 +1,4 @@
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/lib/translations";
 import { faqData } from "@/lib/faqData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";

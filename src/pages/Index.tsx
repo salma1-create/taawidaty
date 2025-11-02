@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/lib/translations';
 import LanguageToggle from '@/components/LanguageToggle';
 import SearchInput from '@/components/SearchInput';
 import ResultCard from '@/components/ResultCard';
 import { PlaceholderAd } from '@/components/AdBanner';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sparkles, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 type InsuranceType = 'cnops' | 'cnss' | null;
 
@@ -307,6 +308,24 @@ export default function Index() {
             height="120px"
             label={language === 'ar' ? 'إعلان' : 'Publicité'}
           />
+        </div>
+        
+        {/* FAQ Links */}
+        <div className="container mx-auto px-4 py-6 border-t">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+            <Link to="/faq-cnops">
+              <Button variant="outline" className={`gap-2 ${isRTL ? 'font-arabic' : ''}`}>
+                <HelpCircle className="w-4 h-4" />
+                {language === 'ar' ? 'أسئلة متكررة CNOPS' : 'FAQ CNOPS'}
+              </Button>
+            </Link>
+            <Link to="/faq-cnss">
+              <Button variant="outline" className={`gap-2 ${isRTL ? 'font-arabic' : ''}`}>
+                <HelpCircle className="w-4 h-4" />
+                {language === 'ar' ? 'أسئلة متكررة CNSS' : 'FAQ CNSS'}
+              </Button>
+            </Link>
+          </div>
         </div>
         
         <div className="container mx-auto px-4 py-8 text-center text-slate-600">
